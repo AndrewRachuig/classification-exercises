@@ -36,7 +36,7 @@ def clean_titanic_data(df):
     dummy_df = pd.get_dummies(df[['sex', 'embark_town']], dummy_na=False, drop_first=[True, True])
     # Concatenate dummy_df to data
     df = pd.concat([df, dummy_df], axis = 1)
-    return df.drop(columns = ['sex', 'embark_town'])
+    return df.drop #(columns = ['sex', 'embark_town'])
 
 def impute_age_titanic(train, validate, test):
     '''
@@ -69,7 +69,7 @@ def prep_telco(telco):
     telco.total_charges.replace(' ', '0', inplace=True)
     telco['total_charges'] = pd.to_numeric(telco['total_charges'], errors='coerce')
     dummies_list = telco.select_dtypes('object').columns
-    dummy_df = pd.get_dummies(telco[dummies_list], dummy_na=False, drop_first=[True, True])
+    dummy_df = pd.get_dummies(telco[dummies_list], dummy_na=False, drop_first=True)
     telco = pd.concat([telco, dummy_df], axis = 1)
     
     # Before splitting the resulting cleaned dataframe into Train, Validate, Test subsets I would need to drop the 
