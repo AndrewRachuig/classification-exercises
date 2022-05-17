@@ -36,7 +36,7 @@ def clean_titanic_data(df):
     dummy_df = pd.get_dummies(df[['sex', 'embark_town']], dummy_na=False, drop_first=[True, True])
     # Concatenate dummy_df to data
     df = pd.concat([df, dummy_df], axis = 1)
-    return df.drop #(columns = ['sex', 'embark_town'])
+    return df.drop(columns = ['sex', 'embark_town'])
 
 def impute_age_titanic(train, validate, test):
     '''
