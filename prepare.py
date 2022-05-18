@@ -75,5 +75,6 @@ def prep_telco(telco):
     # Before splitting the resulting cleaned dataframe into Train, Validate, Test subsets I would need to drop the 
     # original categorical columns used to create the dummy categorical columns. That could be done here before 
     # returning the cleaned telco dataframe.
-    return telco
+    return telco.drop(columns= dummies_list)
+    
 
